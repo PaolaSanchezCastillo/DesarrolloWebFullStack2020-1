@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width , inicial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+    <form action="index.html" method="post">
+        <h1>Logeate / Registrate</h1>
+
+        <fieldset>
+            <legend><span class="number">1</span>Tu información básica</legend>
+            <br>
+
+            <label for="nombre">Nombre: </label><input type="text" name="user" id="name">
+            <label for="mail">Correo eléctronico: </label> <input type="email" id="mail" name="mail">
+
+            <label for="password">Contraseña:</label><input type="password" name="pass" id="password">
+
+            <label for="edad">Edad: </label><input type="number" min="18"><br>
+            <label for="genero" id="genero">Género: </label>
+            <input type="radio" name="femenino" id="genero" value="fem"> <label for="femenino">Femenino</label>
+            <input type="radio" id="genero" value="masculino" value="mas"><label for="masculino">Masculino</label>
+        </fieldset>
+
+        <fieldset>
+            <label for="job">Puesto: </label>
+            <select name="job" id="job">
+                <option value="front">Front-End Developer</option>
+                <option value="back">Back-End Developer</option>
+                <option value="full">Full-Stack Developer</option>
+            </select>
+
+            <label for="areas">Áreas de Intéres:</label>
+            <input type="checkbox" name="remoto" id=""><label for="remoto">Trabajo remoto</label>
+            <input type="checkbox" name="pm" id=""><label for="pm">Project Manager</label>
+            <input type="checkbox" name="programmer" id=""><label for="programmer">Programador</label>
+        </fieldset>
+        <fieldset>
+            <legend><span class="number">3</span>Comentarios</legend>
+            <label for="comentarios">Comentarios</label>
+            <textarea name="comentarios" id="coment"></textarea>
+
+        </fieldset>
+
+        <fieldset>
+            <button type="submit">Enviar</button>
+        </fieldset>
+
+
+    </form>
+</body>
+
+</html>
