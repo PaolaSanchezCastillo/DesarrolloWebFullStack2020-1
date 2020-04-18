@@ -81,7 +81,7 @@
             text-align: justify;
             padding-left: 10px;
             padding-right: 10px;
-            margin-bottom: 0;
+            margin-bottom: 60px;
         }
         
         .nosotros {
@@ -160,6 +160,10 @@
         
         #precios {
             background-color: black;
+            padding-top: 40px;
+            margin-top: 40px;
+            width: 100%;
+            position: relative;
         }
         
         #tabla-precios h3 {
@@ -172,4 +176,45 @@
             background-image: -o-linear-gradient(linear, left top, left bottom, from(#fff), to(#eee));
             background-image: -ms-linear-gradient(linear, left top, left bottom, from(#fff), to(#eee));
             background-image: linear-gradient(linear, left top, left bottom, from(#fff), to(#eee));
+        }
+        
+        #tabla-precios ul {
+            margin: 20px 0 0 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        #tabla-precios li {
+            border-top: 1px solid #bbb;
+            padding: 10px 0;
+            git text-align: center;
+        }
+        
+        #tabla-precios .conocer {
+            position: relative;
+            padding: 8px 20px;
+            margin: 20px 0 0 0;
+            color: #fff;
+            font: bold 16px Arial, Helvetica;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+            background-color: limegreen;
+            -moz-border-radius: 4px;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+        }
+        
+        #tabla-precios .conocer:hover {
+            background-color: #16A085;
+        }
+        
+        span {
+            border-radius: 100%;
+            padding: 20px;
+            border: 5px solid #95A5A6;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            margin-bottom: 10px;
         }
