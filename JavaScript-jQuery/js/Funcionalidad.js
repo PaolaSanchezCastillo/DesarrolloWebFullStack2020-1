@@ -13,7 +13,6 @@ $(document).ready(function() {
         var txt = $(this).text();
 
         if (txt === "Editar") {
-            $(this).text("Finalizar");
             $("#agregar").removeAttr("disabled");
             $("#tarea").css("boder", "1px solid red");
         } else {
@@ -23,6 +22,35 @@ $(document).ready(function() {
 
 
     });
+
+    $("#agregar").on("click", function(e) {
+        var tarea = $("#tarea").val();
+        $("#lista").append("<li> " + tarea + "</li>");
+
+    });
+
+    $("#lista").on("DOMSubtreeModified", function() {
+        $("#lista>li").on("click", function(e) {
+            $("#realizadas").append(this);
+        });
+
+
+
+    });
+
+    $("#imprimir").on("click", function(e) {
+        var mensaje = "Cosas realizadas: \n ";
+        $("#realizadas>li").each(function() {
+            mensaje += $(this).text() + " \n";
+        });
+        alert(mensaje);
+    });
+
+
+
+
+
+
 
 
 });
