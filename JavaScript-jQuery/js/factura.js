@@ -14,6 +14,9 @@ $("#agregar").on("click", function(e) {
 <td>\
 <input class='importe' type='text' readonly='readonly' />\
 </td>\
+<td> \
+<img class='eliminar' src='http://icons.iconarchive.com/icons/hopstarter/plastic-mini/24/Button-Delete-icon.png' /> \
+</td>\
 </tr>"
 
     );
@@ -24,6 +27,11 @@ $("#agregar").on("click", function(e) {
         calcularImporte(tr); // accion 1
         calcularTotal(); // accion 2
     });
+
+    $(".eliminar:last").on("click", function(e) {
+        $(this).closest("tr").remove();
+        calcularTotal();
+    })
 
 });
 

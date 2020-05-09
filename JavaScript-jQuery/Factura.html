@@ -7,6 +7,14 @@
         .text-right {
             text-align: right;
         }
+        
+        #tablaPartidas {
+            width: 90%;
+        }
+        
+        tr {
+            text-align: center;
+        }
     </style>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -19,45 +27,79 @@
 
 <body>
     <div class="container-fluid">
-        <button type="button" class="btn btn-primary" id="agregar">Agregar partida</button>
-        <table>
-            <thead>
-                <tr id="filaTitulos">
-                    <th>Clave</th>
-                    <th>Precio</th>
-                    <th>Unidades</th>
-                    <th>Importe</th>
-                </tr>
-            </thead>
-            <tbody id="partidas">
+        <h3>Detalle de Facturación</h3>
+        <div id="acordion">
+            <div>
+                <table>
+                    <tr>
+                        <td><label for="nombre">Nombre: </label></td>
+                        <td><input id="nombre" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="rfc">RFC:</label></td>
+                        <td><input type="text" id="rfc" maxlength="18"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="direccion">Dirección</label></td>
+                        <td><input type="text" id="dir"></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="fecha">Fecha:</label></td>
+                        <td><input type="text" id="fecha"></td>
+                    </tr>
+                </table>
+            </div>
+            <h3>Partidas</h3>
+            <div>
+                <button type="button" class="btn btn-primary" id="agregar">Agregar partida</button>
+                <table id="tablaPartidas">
+                    <thead>
+                        <tr id="filaTitulos">
+                            <th>Clave</th>
+                            <th>Precio</th>
+                            <th>Unidades</th>
+                            <th>Importe</th>
+                        </tr>
+                    </thead>
+                    <tbody id="partidas">
 
 
-            </tbody>
-            <tfoot>
-                <tr id="filaSubtotal">
-                    <td class="text-right" colspan="3">Subtotal: $</td>
-                    <td class="text-right" id="subtotal">0.00</td>
-                </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr id="filaSubtotal">
+                            <td class="text-right" colspan="3">Subtotal: $</td>
+                            <td class="text-right" id="subtotal">0.00</td>
+                        </tr>
 
-                <tr>
-                    <td class="text-right" colspan="3">I.V.A : $</td>
-                    <td class="text-right" id="iva">0.00</td>
+                        <tr>
+                            <td class="text-right" colspan="3">I.V.A : $</td>
+                            <td class="text-right" id="iva">0.00</td>
 
-                </tr>
+                        </tr>
 
-                <tr>
-                    <td class="text-right" colspan="3">Total : $</td>
-                    <td class="text-right" id="total">0.00</td>
+                        <tr>
+                            <td class="text-right" colspan="3">Total : $</td>
+                            <td class="text-right" id="total">0.00</td>
 
-                </tr>
+                        </tr>
 
-            </tfoot>
+                    </tfoot>
 
-        </table>
-
+                </table>
+            </div>
+        </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script>
+            $("#acordion").accordion({
+                collapsible: true,
+                heightStyle: "content"
+
+            });
+        </script>
         <script src="js/factura.js"></script>
 
     </div>
