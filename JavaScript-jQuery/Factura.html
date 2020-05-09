@@ -1,0 +1,111 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Factura</title>
+    <style>
+        .text-right {
+            text-align: right;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <table>
+        <thead>
+            <tr id="filaTitulos">
+                <th>Clave</th>
+                <th>Precio</th>
+                <th>Descripcion</th>
+                <th>Unidades</th>
+                <th>Importe</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input class="clave" type="text"></td>
+                <td><input class="precio" type="number" min="0"></td>
+                <td><input class="descripcion" type="text"></td>
+                <td><input class="unidades" type="number" min="1" step="1"></td>
+                <td><input class="importe" type="text" readonly="readonly"></td>
+
+            </tr>
+            <tr>
+                <td><input class="clave" type="text"></td>
+                <td><input class="precio" type="number" min="0"></td>
+                <td><input class="descripcion" type="text"></td>
+                <td><input class="unidades" type="number" min="1" step="1"></td>
+                <td><input class="importe" type="text" readonly="readonly"></td>
+
+            </tr>
+            <tr>
+                <td><input class="clave" type="text"></td>
+                <td><input class="precio" type="number" min="0"></td>
+                <td><input class="descripcion" type="text"></td>
+                <td><input class="unidades" type="number" min="1" step="1"></td>
+                <td><input class="importe" type="text" readonly="readonly"></td>
+
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr id="filaSubtotal">
+                <td class="text-right" colspan="3">Subtotal: $</td>
+                <td class="text-right" id="subtotal">0.00</td>
+            </tr>
+
+            <tr>
+                <td class="text-right" colspan="3">I.V.A : $</td>
+                <td class="text-right" id="iva">0.00</td>
+
+            </tr>
+
+            <tr>
+                <td class="text-right" colspan="3">Total : $</td>
+                <td class="text-right" id="total">0.00</td>
+
+            </tr>
+
+        </tfoot>
+
+    </table>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(".precio, .unidades ").on("change", function(e) {
+            var tr = $(this).closest("tr");
+            calcularImporte(tr);
+        })
+
+        function calcularImporte(tr) {
+            var precio = Number($(tr).find(".precio").val());
+            var unidades = Number($(tr).find(".unidades").val());
+
+            console.log('precio' + precio);
+            console.log("unidades " + unidades);
+
+            var importe = precio * unidades;
+            console.log('el importe es ' + importe);
+            $(tr).find(".importe").val(importe);
+
+        }
+
+        function calcularTotal() {
+            var subtotal = 0;
+            $(".importe").each(
+                function() {
+                    subtotal += Number($(this).val());
+                }
+            );
+
+            $("#subtotal").text(subtotal);
+
+
+        }
+    </script>
+
+</body>
+
+</html>
