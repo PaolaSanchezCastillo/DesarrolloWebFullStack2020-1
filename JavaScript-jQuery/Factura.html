@@ -74,11 +74,16 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
+        // quien lo va a hacer 
         $(".precio, .unidades ").on("change", function(e) {
             var tr = $(this).closest("tr");
-            calcularImporte(tr);
-        })
+            calcularImporte(tr); // accion 1
+            // calcularTotal(); // accion 2
+        });
 
+        //    $("#boton").on("click",function(e){
+        // } )
+        // accion 1
         function calcularImporte(tr) {
             var precio = Number($(tr).find(".precio").val());
             var unidades = Number($(tr).find(".unidades").val());
@@ -94,13 +99,22 @@
 
         function calcularTotal() {
             var subtotal = 0;
+
             $(".importe").each(
                 function() {
                     subtotal += Number($(this).val());
                 }
             );
-
             $("#subtotal").text(subtotal);
+            console.log("El subtotal es " + subtotal.toFixed(2));
+
+            var iva = subtotal * 0.16;
+            $("#iva").text(iva.toFixed(2));
+
+            var total = subtotal + iva;
+            $("#total").text(total.toFixed(2));
+
+
 
 
         }
