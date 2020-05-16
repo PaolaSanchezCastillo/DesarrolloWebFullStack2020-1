@@ -3,9 +3,6 @@ $("#agregar").on("click", function(e) {
     $("#partidas").append(
         "<tr>\
 <td>\
-<span class='ui-icon ui-icon-arrowthick-2-n-s'></span>\
-</td>\
-<td>\
 <input class=\"clave\" type=\"text\" placeholder='TAB para buscar' />\
 </td>\
 <td>\
@@ -57,6 +54,17 @@ $("tr.articulo td").on("click", function(e) {
     );
 
     $(tr).find(".clave").val(claveArticulo);
+
+    $(tr).find(".precio").val(precioArticulo);
+    $(tr).find(".unidades").val(1);
+
+    $("#dialog").dialog("close");
+
+    calcularImporte(tr);
+    calcularTotales();
+
+
+
 
 });
 
