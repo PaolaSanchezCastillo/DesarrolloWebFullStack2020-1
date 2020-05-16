@@ -91,6 +91,41 @@
             </div>
         </div>
 
+
+        <div id="dialog" title="Productos">
+            <table border="1">
+                <tr>
+                    <th>Clave</th>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                </tr>
+
+                <tr class="articulo">
+                    <td class="claveArticulo">A101</td>
+                    <td class="nombreArticulo">Televisión Samsung 32´</td>
+                    <td class="precioArticulo">$6,000</td>
+
+
+                </tr>
+                <tr class="articulo">
+                    <td class="claveArticulo">A202</td>
+                    <td class="nombreArticulo">Televisión Samsung 45´</td>
+                    <td class="precioArticulo">$9,000</td>
+
+
+                </tr>
+
+                <tr class="articulo">
+                    <td class="claveArticulo">B101</td>
+                    <td class="nombreArticulo">Refrigerador</td>
+                    <td class="precioArticulo">$8,999</td>
+
+
+                </tr>
+            </table>
+
+        </div>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
         <script>
@@ -98,6 +133,11 @@
                 collapsible: true,
                 heightStyle: "content"
 
+            });
+
+            $("#dialog").dialog({
+                autoOpen: false,
+                modal: true
             });
         </script>
         <script src="js/factura.js"></script>

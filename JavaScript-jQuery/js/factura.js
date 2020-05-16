@@ -3,7 +3,7 @@ $("#agregar").on("click", function(e) {
     $("#partidas").append(
         "<tr>\
 <td>\
-<input class=\"clave\" type=\"text\" />\
+<input class=\"clave\" type=\"text\" placeholder='TAB para buscar' />\
 </td>\
 <td>\
 <input class='precio' type='number' />\
@@ -31,6 +31,34 @@ $("#agregar").on("click", function(e) {
     $(".eliminar:last").on("click", function(e) {
         $(this).closest("tr").remove();
         calcularTotal();
+    });
+
+    $(".clave:last").on("keydown", function(e) {
+        var f2 = 9;
+        var keycode = e.which;
+
+        if (keycode === f2) {
+            $("#dialog").dialog("open");
+
+            //  tr = $(this).closest("tr"); de la tabla PARTIDAS
+
+            // Paso 1. Apuntar al reglon en el que se encuentran 
+            //   var articulo = $(this).closest("tr"); De la tabla articulos
+            // Paso 2. Apuntar al elemento especifico tocado precioArticulo, claveArticulo
+
+            // Paso 3. Agregar el dato al renglon y al elemento input especifico 
+            // BUSCAR EN LA TABLA ARTICULOS  .text()
+
+            // apunta especificamente al .clave, .precio , (".unidades").val(1);
+            // INYECTAR en la tabla PARTIDAS .val()
+            //NOTA: Siempre se debe llamar al renglon en donde me encuentro
+            // $(tr)
+            // Paso 4.  close al dialog $("#dialog").dialog("close");
+            // Paso 5. Calcular importe y calcular total 
+
+
+
+        }
     })
 
 });
