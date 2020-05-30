@@ -1,21 +1,29 @@
+const readline = require('readline-sync');
 const Operaciones = {}
 
+var a;
+var b;
+
+
 function suma(a, b) {
-    return a + b;
+    a = readline.question('Dame el primer numero ');
+    b = readline.question('Dame el segundo numero ');
+    var resultado = parseFloat(a) + parseFloat(b);
+    console.log('El resultado de la SUMA es: ', resultado);
+
 }
+
+
 
 function resta(a, b) {
-    return a - b;
+    a = readline.question('Dame el primer numero ');
+    b = readline.question('Dame el segundo numero ');
+    var resultado = parseFloat(a) - parseFloat(b);
+    console.log('El resultado de la RESTA es: ', resultado);
+
 }
 
-//console.log("La suma es:", suma(5, 6));
-//console.log("La resta es:", resta(8, 24));
 
-// Con exports puedo exportar algunos elementos explicimente
-//exports.suma = suma;
-//exports.resta = resta;
-
-// Para exportar las atributos, funciones, etc. 
 
 module.exports = Operaciones;
 
