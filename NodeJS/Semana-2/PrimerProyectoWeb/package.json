@@ -1,11 +1,20 @@
 {
-  "name": "primerproyectoweb",
-  "version": "1.0.0",
-  "description": "Mi primer proyecto en Node.js",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "PaolaSanchez",
-  "license": "ISC"
+    "name": "primerproyectoweb",
+    "version": "1.0.0",
+    "description": "Mi primer proyecto en Node.js",
+    "main": "Server.js",
+    "scripts": {
+        "ciclico": "nodemon --exec node src/Server.js"
+    },
+    "author": "PaolaSanchez",
+    "license": "ISC",
+    "dependencies": {
+        "css-loader": "^3.5.3",
+        "express": "^4.17.1",
+        "html-webpack-plugin": "^4.3.0",
+        "nodemon": "^2.0.4",
+        "style-loader": "^1.2.1",
+        "webpack": "^4.43.0",
+        "webpack-dev-middleware": "^3.7.2"
+    }
 }

@@ -4,7 +4,21 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'development', // Modo de desarrollo
-    entry: './src/Client/Index.js',
-    output:
+    entry: './Client/Index.js',
+    output: {
+        path: path.join(__dirname, 'dist'),
+        filename: 'bundle.js'
+    },
+    module: {
+        rules: [{
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader']
+        }]
+    },
+    plugins: [
+        new htmlWebpackPlugin({
+            template: './Client/Index-Bootstrap.html'
+        })
+    ]
 
-}
+};
