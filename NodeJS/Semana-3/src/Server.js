@@ -11,6 +11,9 @@ const routeAdministrator = require('./RouteAdministrator');
 
 const app = express(); //regresa una aplicacion (cascaron) de express 
 
+
+// FUNCION TODO ESTA BIEN  
+
 async function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
     // Una promesa en javascript es im objeto que representa la terminacion o 
