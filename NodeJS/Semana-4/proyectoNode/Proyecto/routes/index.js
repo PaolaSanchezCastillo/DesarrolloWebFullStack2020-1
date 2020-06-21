@@ -9,9 +9,56 @@ router.get('/', function(req, res, next) {
 });
 
 
-//Login
+//SESSION 
 
 router.get('/login', function(req, res, next) {
+    res.render('login');
+});
+
+router.post('/login', function(req, res, next) {
+    req.session.mail = req.body.mail;
+    var pagina = '<!DOCTYPE html><html lang="en"  <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Document</title> </head> <body>' +
+        '<p>Se creo la session, puedes entrar al panel de control</p>' + '</br><a href="/">Retornar</a>' + '</body>  </html>';
+    res.send(pagina);
+
+});
+
+router.get('/panel', function(req, res, next) {
+
+    if (req.session.mail) {
+        var pagina = '<!DOCTYPE html><html lang="en"  <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Document</title> </head> <body>' +
+            '<h1>Bienvenido</h1>' + req.session.mail + '<a href="/">Retornar</a>' +
+            '<a href="/logout">Logout</a>' +
+            '</body>  </html>';
+        res.send(pagina);
+        // Lo ideal seria poner un res.render que apuntara a una elemento dentro de views
+    } else {
+        var pagina = '<!DOCTYPE html><html lang="en"  <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Document</title> </head> <body>' +
+            '<h1>No tienes derecho a acceder</h1>' + '<a href="/">Retornar</a>' +
+
+            '</body>  </html>';
+        res.send(pagina);
+        // Lo ideal seria poner un res.render que apuntara a una elemento dentro de views
+    }
+
+});
+
+router.get('/logout', function(req, res, next) {
+    req.session.destroy(); // destruir la sesion anterior
+    var pagina = '<!DOCTYPE html><html lang="en"  <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Document</title> </head> <body>' +
+        '<h1>Se ha cerrado la session</h1>' + '<a href="/">Retornar</a>' +
+        '<a href="/">Retornar</a>' +
+        '</body>  </html>';
+    res.send(pagina);
+})
+
+
+
+
+
+//Login
+
+/* router.get('/login', function(req, res, next) {
     if (req.cookies.mail) // Si hay una coocke (TRUE) 
 
     {
@@ -21,8 +68,9 @@ router.get('/login', function(req, res, next) {
         res.render('login');
     }
 });
-
-
+ */
+/* 
+COOKIE
 router.post('/login', function(req, res, next) {
     console.log('ENTRO');
 
@@ -33,7 +81,7 @@ router.post('/login', function(req, res, next) {
         '<p>Se creo la coockie</p>' + '<a href="/">Retornar</a>' + '</body>  </html>';
     res.send(pagina);
 });
-
+ */
 
 
 module.exports = router;
