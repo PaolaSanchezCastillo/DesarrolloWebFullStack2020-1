@@ -6,10 +6,10 @@ router.get('/users', (req, res) => {
 });
 
 router.get('/users/signin', (req, res) => {
-    res.send('Logeo de Usuario');
+    res.render('signin.hbs')
 });
 
 router.get('/users/signup', (req, res) => {
-    res.send('Registro de Usuario');
+    res.render('signup.hbs');
 });
 module.exports = router;

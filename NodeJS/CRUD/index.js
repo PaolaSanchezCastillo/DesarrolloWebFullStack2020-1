@@ -1,24 +1,34 @@
 const express = require('express');
+const path = require('path');
 const exphbs = require('express-handlebars');
 const methodOverride = require('method-override');
 const session = require('express-session');
-const path = require('path');
 
+//Inicializaciones  (1)
 const app = express();
-app.set('port', process.env.PORT || 3000);
-app.set('views', path.join(__dirname, 'views'));
 
-app.engine('hbs', exphbs({
+require('./database');
+
+
+
+
+//Settings (Configuraciones) (2) 
+app.set('port', process.env.PORT || 3000);
+app.set('views', path.join(__dirname, 'src/views'));
+app.engine('.hbs', exphbs({
     defaultLayout: 'main',
     layoutsDir: path.join(app.get('views'), 'layouts'),
     partialsDir: path.join(app.get('views'), 'partials'),
     extname: '.hbs'
 }));
+app.set('view engine', '.hbs');
 
+//Middleware (Antes de llegar al servidor)
 
-app.use(methodOverride('method'));
-
-//Routes
+app.use(express.urlencoded({
+    extended: false
+}));
+app.use(methodOverride('method')); // Formularios methodos put y delete
 
 app.use(session({
     secret: 'Loquesea',
@@ -26,12 +36,19 @@ app.use(session({
     saveUninitialized: true
 }));
 
-//Rutas
+// Routes 
 
 app.use(require('./src/routes/index'));
+app.use(require('./src/routes/users'));
 app.use(require('./src/routes/products'));
-app.use(require('./src/routes/usuarios'));
 
+//Static Files
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+
+
+//Server is listenning (3)
 app.listen(app.get('port'), () => {
-    console.log('Servidor corriendo en el puerto: ', app.get('port'));
-})
+    console.log('Server on port', app.get('port'));
+});
