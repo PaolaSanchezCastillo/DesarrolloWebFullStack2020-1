@@ -29,7 +29,8 @@ app.use(session({
 //Rutas
 
 app.use(require('./src/routes/index'));
-
+app.use(require('./src/routes/products'));
+app.use(require('./src/routes/usuarios'));
 
 app.listen(app.get('port'), () => {
     console.log('Servidor corriendo en el puerto: ', app.get('port'));
