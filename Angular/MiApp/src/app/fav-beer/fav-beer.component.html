@@ -1,0 +1,33 @@
+<div class="row" *ngIf="isActive">
+    <div class="col-sm-12 col-md-6 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="font-weight-normal"> Our Favorite Beer Today</h4>
+                <button type="button" class="btn btn-link float-right " (click)="toogleImage($event)"> Show</button>
+            </div>
+            <div class="card-body" *ngIf="tooglePromotion">
+                <div class="row">
+                    <div class="col-4 text-center">
+                        <img [src]="favBerrImg" [style.height.px]="imgHeight" [style.width.px]="imgWidth" />
+
+                    </div>
+
+                    <div class="col-8 d-flex flex-column">
+                        <h5 class="card-title">
+                            How to Dissappear Completely
+                        </h5>
+                        <p class="card-text">
+                            For 18+
+                        </p>
+                        <h2 class="font-weight-normal">
+
+                        </h2>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

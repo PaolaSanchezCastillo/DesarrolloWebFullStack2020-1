@@ -1,0 +1,40 @@
+<p>
+</p>
+
+<div class="row">
+    <div class="col-sm-4 col-xl mb-4" *ngFor="let beer of beers">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="ml-auto mr-3">
+                        <i>icon</i>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-4 text-center">
+                        <img class="beer-image" src="{{beer.img}}" alt="{{beer.title}}">
+                    </div>
+                    <div class="col-8 d-flex flex-colum">
+                        <h5 class="card-title beer-tittle" title="{{beer.title}}">
+                            {{beer.title}}
+                        </h5>
+                        <p class="card-text beer-descrption">
+                            {{beer.text}}
+                        </p>
+                        <small class="text-muted mt-auto ">
+                        Price: {{beer.price}}
+                    </small>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="card-footer text-center">
+                <button type="button" class="btn btn-online-primary addToCart">
+                        Add
+                </button>
+            </div>
+
+
+        </div>
