@@ -1,40 +1,26 @@
-<p>
-</p>
-
 <div class="row">
-    <div class="col-sm-4 col-xl mb-4" *ngFor="let beer of beers">
+    <div class="col-sm-4 col-xl-3 mb-4" *ngFor="let beer of searchResults">
         <div class="card">
             <div class="card-body">
                 <div class="row">
                     <div class="ml-auto mr-3">
-                        <i>icon</i>
+                        <i class="far fa-star favorite-beer text-primary"></i>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-4 text-center">
-                        <img class="beer-image" src="{{beer.img}}" alt="{{beer.title}}">
+                        <img class="beer-image" src="{{ beer.img }}" alt="{{ beer.title }}"	/>
                     </div>
-                    <div class="col-8 d-flex flex-colum">
-                        <h5 class="card-title beer-tittle" title="{{beer.title}}">
-                            {{beer.title}}
-                        </h5>
-                        <p class="card-text beer-descrption">
-                            {{beer.text}}
-                        </p>
-                        <small class="text-muted mt-auto ">
-                        Price: {{beer.price}}
-                    </small>
-
+                    <div class="col-8 d-flex flex-column">
+                        <h5 class="card-title beer-title" title="{{ beer.title }}">{{ beer.title }}</h5>
+                        <p class="card-text beer-description">{{ beer.text }}</p>
+                        <small class="text-muted mt-auto">Price: {{ beer.price | currency:'MXN':'symbol':'1.2-2' }}</small>
                     </div>
                 </div>
-
             </div>
             <div class="card-footer text-center">
-                <button type="button" class="btn btn-online-primary addToCart">
-                        Add
-                </button>
+                <button type="button" class="btn btn-outline-primary addToCart">Add to Cart</button>
             </div>
-
-
         </div>
+    </div>
+</div>

@@ -1,28 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'fav-beer',
-  templateUrl: './fav-beer.component.html',
-  styleUrls: ['./fav-beer.component.css']
+    selector: 'fav-beer',
+    styleUrls: ['./fav-beer.component.css'],
+    templateUrl: './fav-beer.component.html'
 })
-export class FavBeerComponent implements OnInit {
+export class FavBeerComponent {
+    isActive: boolean = true;
 
+    favBeerImg: string = "https://images.punkapi.com/v2/179.png";
+    imgHeight: number = 398;
+    imgWidth: number = 102;
 
-  isActive: boolean = true; 
-  favBerrImg: string = "https://images.punkapi.com/v2/192.png"; 
-  imgHeight: number = 398; 
-  imgWidth: number = 100; 
-
-  tooglePromotion: boolean = true; 
-
-  toogleImage(event): void{
-    this.tooglePromotion = !this.tooglePromotion;
-  }
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-
-
+    togglePromotion: boolean = true;
+    toggleImage( event ): void {
+        //console.log( event );
+        this.togglePromotion = !this.togglePromotion;
+    }
 }

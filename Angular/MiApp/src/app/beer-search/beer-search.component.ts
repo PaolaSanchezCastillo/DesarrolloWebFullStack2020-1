@@ -1,17 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'beer-search',
-  templateUrl: './beer-search.component.html',
-  styleUrls: ['./beer-search.component.css']
+    selector: 'beer-search',
+    templateUrl: './beer-search.component.html'
 })
-export class BeerSearchComponent implements OnInit {
+export class BeerSearchComponent {
 
-  filterBy : string; 
+    private _filterBy: string;
 
-  constructor() { }
+    @Output() filterEvent: EventEmitter<string> = new EventEmitter<string>();
 
-  ngOnInit(): void {
-  }
+    emitFilterEvent(): void {
+        console.log( `Emitiendo '${ this.filterBy }'...` );
+        this.filterEvent.emit( this.filterBy );
+    }
 
+    public get filterBy(): string {
+        //console.log( "GET" );
+        return this._filterBy;
+    }
+
+    public set filterBy(value: string) {
+        console.log( "SET" );
+        this._filterBy = value;
+        this.emitFilterEvent();
+    }
 }

@@ -1,33 +1,32 @@
-<div class="row" *ngIf="isActive">
+<div class="row mb-4" *ngIf="isActive">
     <div class="col-sm-12 col-md-6 mx-auto">
         <div class="card">
             <div class="card-header">
-                <h4 class="font-weight-normal"> Our Favorite Beer Today</h4>
-                <button type="button" class="btn btn-link float-right " (click)="toogleImage($event)"> Show</button>
+                <h4 class="font-weight-normal">
+                    Our Favorite Beer Today
+                    <button type="button" class="btn btn-link float-right" (click)="toggleImage($event)">Show</button>
+                </h4>
             </div>
-            <div class="card-body" *ngIf="tooglePromotion">
+            <div class="card-body" *ngIf="togglePromotion">
                 <div class="row">
                     <div class="col-4 text-center">
-                        <img [src]="favBerrImg" [style.height.px]="imgHeight" [style.width.px]="imgWidth" />
-
+                        <!--img class="fav-beer-image" src="https://images.punkapi.com/v2/179.png" /-->
+                        <img class="fav-beer-image" [src]="favBeerImg" [style.height.px]="imgHeight" [style.width.px]="imgWidth" />
                     </div>
-
                     <div class="col-8 d-flex flex-column">
-                        <h5 class="card-title">
-                            How to Dissappear Completely
-                        </h5>
-                        <p class="card-text">
-                            For 18+
-                        </p>
-                        <h2 class="font-weight-normal">
-
-                        </h2>
-
+                        <h5 class="card-title">How To Disappear Completely</h5>
+                        <p class="card-text">Jam-packed with two of our favourite hops - Columbus and Centennial, it has 198 (yes one hundred and ninety eight) theoretical IBUs.</p>
+                        <div class="mt-auto mx-auto text-center">
+                            <h2 class="font-weight-normal">
+                                <small class='text-muted' style='text-decoration: line-through;'>$6.4</small>
+                                <small class='text-muted'> / </small><span>$3.2</span>
+                            </h2>
+                            <button type="button" class="btn btn-outline-info btn-lg mb-2">Add to the Wish List</button>
+                            <button type="button" class="btn btn-outline-primary btn-lg mb-2">Add to Cart</button>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
 </div>
