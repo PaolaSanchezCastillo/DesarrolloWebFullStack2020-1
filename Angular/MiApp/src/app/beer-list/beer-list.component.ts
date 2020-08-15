@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {  Input } from '@angular/core';
+import {Beer} from '../beer';
 
 @Component({
   selector: 'beer-list',
@@ -33,6 +35,12 @@ export class BeerListComponent implements OnInit {
       "text": "Any",
       "price": 4.5
     
+    },
+    {
+      "img": "https://images.punkapi.com/v2/keg.png", 
+      "title": "Jasmine IPA",
+      "text": "The favorite",
+      "price": 6.7
     }
 
 

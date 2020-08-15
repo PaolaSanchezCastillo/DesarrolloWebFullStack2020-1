@@ -1,7 +1,7 @@
 <div class="row mb-4">
     <div class="col-sm-12 col-md-6 mx-auto">
-        <input type="text" id="search" class="form-control" placeholder="Pess 'Enter' to search.. " autofocus [(ngModel)]='filterBy' />
-        <small id="passwordHelpBlock" class="form-control text-muted" *ngIf='filterBy'> 
+        <input type="text" id="search" class="form-control" placeholder="Pess 'Enter' to search.. " autofocus [(ngModel)]="filterBy" />
+        <small id="passwordHelpBlock" class="form-control text-muted" *ngIf="filterBy"> 
             Filter by "{{filterBy | uppercase}}"
         </small>
 

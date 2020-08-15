@@ -15,7 +15,7 @@ export class FavBeerComponent implements OnInit {
 
   tooglePromotion: boolean = true; 
 
-  toogleImage(event){
+  toogleImage(event): void{
     this.tooglePromotion = !this.tooglePromotion;
   }
   constructor() { }

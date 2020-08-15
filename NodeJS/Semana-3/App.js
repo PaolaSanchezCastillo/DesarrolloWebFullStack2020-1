@@ -20,6 +20,26 @@ app.post('/calculadora', (req, res) => {
     pagina += '</body></html>';
     res.send(pagina);
 
+    //REUTILIZAR LOS MODULOS DE CALCULADORA PARA SOLO INVOCAR LAS FUNCIONES REALIZADAS PREVIAMENTE 
+    // SE DEBERAN PODER RESOLVER LAS 4 OPERACIONES BASICAS
+    //SUMA 1 
+    //RESTA 2 
+    //MULTIPLICACION 3 
+    // var opcion = req.body.operacion; 
+    // if(opcion === 'suma'){
+    //  resultado =   suma(num1, num2); 
+
+    //} 
+
+    //DIVISION 4 
+
+    // SELECT (CON LAS CUATRO OPCIONES )
+
+    // LA CALCULADORA DEBERA DECIR QUE OPERACION SE SELECIONO Y CUAL ES EL RESULTADO
+
+
+
+
 });
 
 app.listen(9000, () => {

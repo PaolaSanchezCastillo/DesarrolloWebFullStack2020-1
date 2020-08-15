@@ -3,6 +3,7 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const methodOverride = require('method-override');
 const session = require('express-session');
+const flash = require('connect-flash');
 
 //Inicializaciones  (1)
 const app = express();
@@ -28,13 +29,21 @@ app.set('view engine', '.hbs');
 app.use(express.urlencoded({
     extended: false
 }));
-app.use(methodOverride('method')); // Formularios methodos put y delete
+app.use(methodOverride('_method')); // Formularios methodos put y delete
 
 app.use(session({
     secret: 'Loquesea',
     resave: true,
     saveUninitialized: true
 }));
+
+app.use(flash());
+
+app.use((req, res, next) => {
+    res.locals.successMessage = req.flash('successMessage');
+    res.locals.errorMessage = req.flash('errorMessage');
+    next()
+});
 
 // Routes 
 
