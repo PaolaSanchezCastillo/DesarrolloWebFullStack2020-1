@@ -1,6 +1,6 @@
 export interface Beer {
-    img: string;
-    title: string;
-    text: string;
-    price: number;
+    image_url: string;
+    name: string;
+    description: string;
+    abv: number;
 }

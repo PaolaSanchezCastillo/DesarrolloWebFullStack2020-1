@@ -9,12 +9,12 @@
                 </div>
                 <div class="row">
                     <div class="col-4 text-center">
-                        <img class="beer-image" src="{{ beer.img }}" alt="{{ beer.title }}"	/>
+                        <img class="beer-image" src="{{ beer.image_url }}" alt="{{ beer.name }}" />
                     </div>
                     <div class="col-8 d-flex flex-column">
-                        <h5 class="card-title beer-title" title="{{ beer.title }}">{{ beer.title }}</h5>
-                        <p class="card-text beer-description">{{ beer.text }}</p>
-                        <small class="text-muted mt-auto">Price: {{ beer.price | currency:'MXN':'symbol':'1.2-2' }}</small>
+                        <h5 class="card-title beer-title" title="{{ beer.name }}">{{ beer.name }}</h5>
+                        <p class="card-text beer-description">{{ beer.description }}</p>
+                        <small class="text-muted mt-auto">Price: {{ beer.abv | currency:'MXN':'symbol':'1.2-2' }}</small>
                     </div>
                 </div>
             </div>

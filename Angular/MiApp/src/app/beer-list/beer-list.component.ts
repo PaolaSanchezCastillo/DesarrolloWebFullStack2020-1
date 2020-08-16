@@ -1,12 +1,13 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Beer } from '../beer';
+import {BeerServiceService} from '../beer-service.service';
 
 @Component({
     selector: 'beer-list',
     styleUrls: [ './beer-list.component.css' ],
     templateUrl: './beer-list.component.html'
 })
-export class BeerListComponent {
+export class BeerListComponent implements OnInit {
 
     //@Input( 'filterByOnBeerList' ) filterBy: string;
 
@@ -14,35 +15,12 @@ export class BeerListComponent {
 
     searchResults: Array<Beer>;
 
-    beers: Beer[] = [
-        {
-            "img": "https://images.punkapi.com/v2/77.png",
-            "title": "Hobo Pop",
-            "text": "Brewed with mountains of Wheat, Rye, Cara and Crystal malts, fermented with an American ale yeast and bittered with Amarillo & Centennial.",
-            "price": 4.2
-        },
-        {
-            "img": "https://images.punkapi.com/v2/139.png",
-            "title": "Born To Die",
-            "text": "Savagely bitter, exceptionally dry, this IPA is born to die on a predetermined day.",
-            "price": 8.5
-        },
-        {
-            "img": "https://images.punkapi.com/v2/82.png",
-            "title": "Hopped-Up Brown Ale - Prototype Challenge",
-            "text": "Brown ales are perfect foils for resinous C-Hops.",
-            "price": 6.3
-        },
-        {
-            "img": "https://images.punkapi.com/v2/keg.png",
-            "title": "Jasmine IPA",
-            "text": "This has big floral aromas backed up with some of our favourite fruity hop flavours.",
-            "price": 5.8
-        }
-    ];
+    beers: Beer[];
 
-    constructor(){
-        this.searchResults = this.beers;
+    constructor( private BeerServiceService : BeerServiceService){}
+
+    ngOnInit(): void{
+      this.beers = this.BeerServiceService.findAll();
     }
 
     public get filterBy(): string {
@@ -62,7 +40,7 @@ export class BeerListComponent {
         console.log( `Filtrando '${ filterPattern }'...` );
         filterPattern = filterPattern.toLocaleLowerCase();
         return this.beers.filter( ( beer: Beer ) =>
-            beer.title.toLocaleLowerCase().indexOf( filterPattern ) !== -1
+            beer.name.toLocaleLowerCase().indexOf( filterPattern ) !== -1
         );
     }
 }

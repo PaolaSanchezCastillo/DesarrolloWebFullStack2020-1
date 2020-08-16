@@ -14,12 +14,12 @@
                         <img class="fav-beer-image" [src]="favBeerImg" [style.height.px]="imgHeight" [style.width.px]="imgWidth" />
                     </div>
                     <div class="col-8 d-flex flex-column">
-                        <h5 class="card-title">How To Disappear Completely</h5>
-                        <p class="card-text">Jam-packed with two of our favourite hops - Columbus and Centennial, it has 198 (yes one hundred and ninety eight) theoretical IBUs.</p>
+                        <h5 class="card-title">{{favBeer.name}}</h5>
+                        <p class="card-text">{{favBeer.description}}</p>
                         <div class="mt-auto mx-auto text-center">
                             <h2 class="font-weight-normal">
-                                <small class='text-muted' style='text-decoration: line-through;'>$6.4</small>
-                                <small class='text-muted'> / </small><span>$3.2</span>
+                                <small class='text-muted' style='text-decoration: line-through;'>{{favBeer.abv}}</small>
+                                <small class='text-muted'> / </small><span>{{favBeer.abv /2}}</span>
                             </h2>
                             <button type="button" class="btn btn-outline-info btn-lg mb-2">Add to the Wish List</button>
                             <button type="button" class="btn btn-outline-primary btn-lg mb-2">Add to Cart</button>
