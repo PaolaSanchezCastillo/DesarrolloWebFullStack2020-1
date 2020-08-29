@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Beer } from '../beer';
-import { BeerServiceService } from '../beer-service.service';
+import { BeerService } from '../beer.service';
 
 @Component({
     styleUrls: ['./fav-beer.component.css'],
@@ -18,7 +18,7 @@ export class FavBeerComponent implements OnInit {
 
     favBeer: Beer;
 
-    constructor( private beerService: BeerServiceService ){}
+    constructor( private beerService: BeerService ){}
 
     ngOnInit(): void {
         this.beerService.find().subscribe({

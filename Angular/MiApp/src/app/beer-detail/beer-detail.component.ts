@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Beer } from '../beer';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BeerServiceService } from '../beer-service.service';
+import { BeerService } from '../beer.service';
 
 @Component({
   templateUrl: './beer-detail.component.html',
@@ -12,7 +12,7 @@ export class BeerDetailComponent implements OnInit {
   beer: Beer;
 
   constructor(
-    private beerService: BeerServiceService,
+    private beerService: BeerService,
     private route: ActivatedRoute,
     private router: Router
   ) {}

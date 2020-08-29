@@ -1,16 +1,15 @@
+import { Beer } from './beer';
 import { Injectable } from '@angular/core';
-import {Beer } from '../app/beer'; 
-import {HttpClient, HttpErrorResponse }  from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError, empty } from 'rxjs';
-import { catchError ,map } from 'rxjs/operators';
-
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
-export class BeerServiceService {
+export class BeerService {
 
-  constructor( private http: HttpClient ){}
+    constructor( private http: HttpClient ){}
 
     findAll(): Beer[] {
         return [

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Beer } from '../beer';
-import { BeerServiceService } from '../beer-service.service';
+import { BeerService } from '../beer.service';
 
 @Component({
     selector: 'beer-list',
@@ -13,7 +13,7 @@ export class BeerListComponent implements OnInit {
 
     searchResults: Array<Beer>;
 
-    constructor( private beerService: BeerServiceService ){}
+    constructor( private beerService: BeerService ){}
 
     ngOnInit(): void {
     }
@@ -42,7 +42,3 @@ export class BeerListComponent implements OnInit {
         console.log( "FIN DE MÉTODO" );
     }
 }
-   
-
-   
-    

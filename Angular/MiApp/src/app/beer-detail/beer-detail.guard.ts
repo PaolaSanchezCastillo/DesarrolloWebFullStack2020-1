@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class BeerDetailGuardComponent implements CanActivate {
+export class BeerDetailGuard implements CanActivate {
 
   constructor( private router: Router ){}
 
@@ -21,4 +21,4 @@ export class BeerDetailGuardComponent implements CanActivate {
 
       return true;
   }
-} 
+}
