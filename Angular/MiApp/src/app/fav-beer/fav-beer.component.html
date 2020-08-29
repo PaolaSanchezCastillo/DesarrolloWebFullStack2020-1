@@ -1,4 +1,7 @@
-<div class="row mb-4" *ngIf="isActive">
+<div class="d-flex flex-column align-items-center mt-4 mb-4">
+    <h1 class="display-4">We love beer</h1>
+</div>
+<div class="row mb-4" *ngIf="isActive && favBeer">
     <div class="col-sm-12 col-md-6 mx-auto">
         <div class="card">
             <div class="card-header">
@@ -11,15 +14,16 @@
                 <div class="row">
                     <div class="col-4 text-center">
                         <!--img class="fav-beer-image" src="https://images.punkapi.com/v2/179.png" /-->
-                        <img class="fav-beer-image" [src]="favBeerImg" [style.height.px]="imgHeight" [style.width.px]="imgWidth" />
+                        <!--img class="fav-beer-image" [src]="favBeerImg" [style.height.px]="imgHeight" [style.width.px]="imgWidth" /-->
+                        <img class="fav-beer-image" src="{{ favBeer.image_url }}" [style.height.px]="imgHeight" [style.width.px]="imgWidth" />
                     </div>
                     <div class="col-8 d-flex flex-column">
-                        <h5 class="card-title">{{favBeer.name}}</h5>
-                        <p class="card-text">{{favBeer.description}}</p>
+                        <h5 class="card-title">{{ favBeer.name }}</h5>
+                        <p class="card-text">{{ favBeer.description }}</p>
                         <div class="mt-auto mx-auto text-center">
                             <h2 class="font-weight-normal">
-                                <small class='text-muted' style='text-decoration: line-through;'>{{favBeer.abv}}</small>
-                                <small class='text-muted'> / </small><span>{{favBeer.abv /2}}</span>
+                                <small class='text-muted' style='text-decoration: line-through;'>${{ favBeer.abv }}</small>
+                                <small class='text-muted'> / </small><span>${{ favBeer.abv / 2 }}</span>
                             </h2>
                             <button type="button" class="btn btn-outline-info btn-lg mb-2">Add to the Wish List</button>
                             <button type="button" class="btn btn-outline-primary btn-lg mb-2">Add to Cart</button>

@@ -4,7 +4,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="ml-auto mr-3">
-                        <i class="far fa-star favorite-beer text-primary"></i>
+                        <i class="fa fa-star favorite-beer text-primary"></i>
                     </div>
                 </div>
                 <div class="row">
@@ -12,7 +12,9 @@
                         <img class="beer-image" src="{{ beer.image_url }}" alt="{{ beer.name }}" />
                     </div>
                     <div class="col-8 d-flex flex-column">
-                        <h5 class="card-title beer-title" title="{{ beer.name }}">{{ beer.name }}</h5>
+                        <h5 class="card-title beer-title" title="{{ beer.name }}">
+                            <a [routerLink]="['/beers', beer.id]">{{ beer.name }}</a>
+                        </h5>
                         <p class="card-text beer-description">{{ beer.description }}</p>
                         <small class="text-muted mt-auto">Price: {{ beer.abv | currency:'MXN':'symbol':'1.2-2' }}</small>
                     </div>
@@ -23,4 +25,6 @@
             </div>
         </div>
     </div>
+</div>
+<div class="container-fluid">
 </div>

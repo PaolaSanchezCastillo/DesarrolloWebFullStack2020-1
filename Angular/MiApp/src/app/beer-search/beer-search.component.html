@@ -1,8 +1,13 @@
 <div class="row mb-4">
     <div class="col-sm-12 col-md-6 mx-auto">
         <input id="search" type="text" class="form-control" placeholder="Press 'enter' to seach..." autofocus [(ngModel)]="filterBy" />
-        <small id="passwordHelpBlock" class="form-text text-muted" *ngIf="filterBy">
+        <small class="form-text text-muted" *ngIf="filterBy">
             Filter by "{{ filterBy | uppercase }}"
         </small>
+
+        <small class="form-text text-muted" *ngIf="!filterBy">
+        &nbsp;
+    </small>
     </div>
+    <beer-list [filterByOnBeerList]="filterBy"> </beer-list>
 </div>

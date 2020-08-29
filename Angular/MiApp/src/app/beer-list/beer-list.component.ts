@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Beer } from '../beer';
-import {BeerServiceService} from '../beer-service.service';
+import { BeerServiceService } from '../beer-service.service';
 
 @Component({
     selector: 'beer-list',
@@ -9,18 +9,13 @@ import {BeerServiceService} from '../beer-service.service';
 })
 export class BeerListComponent implements OnInit {
 
-    //@Input( 'filterByOnBeerList' ) filterBy: string;
-
     private _filterBy: string;
 
     searchResults: Array<Beer>;
 
-    beers: Beer[];
+    constructor( private beerService: BeerServiceService ){}
 
-    constructor( private BeerServiceService : BeerServiceService){}
-
-    ngOnInit(): void{
-      this.beers = this.BeerServiceService.findAll();
+    ngOnInit(): void {
     }
 
     public get filterBy(): string {
@@ -29,18 +24,25 @@ export class BeerListComponent implements OnInit {
 
     @Input( 'filterByOnBeerList' )
     public set filterBy(value: string) {
-        this._filterBy = value;
-
         console.log( `Recibiendo en BeerListComponent '${ this.filterBy }'...` );
-
-        this.searchResults = this.filterBy? this.filterBeers(this.filterBy) : this.beers ;
+        this._filterBy = value;
+        this.filterBeers( this.filterBy );
     }
 
-    filterBeers( filterPattern: string ): Beer[] {
+    filterBeers( filterPattern: string ) {
         console.log( `Filtrando '${ filterPattern }'...` );
-        filterPattern = filterPattern.toLocaleLowerCase();
-        return this.beers.filter( ( beer: Beer ) =>
-            beer.name.toLocaleLowerCase().indexOf( filterPattern ) !== -1
-        );
+        this.beerService.findByBeerName( filterPattern ).subscribe({
+            next: beers => {
+                console.log( "OBTENIENDO RESULTADOS" );
+                this.searchResults = beers;
+            },
+            error: message => alert( message )
+        });
+
+        console.log( "FIN DE MÉTODO" );
     }
 }
+   
+
+   
+    

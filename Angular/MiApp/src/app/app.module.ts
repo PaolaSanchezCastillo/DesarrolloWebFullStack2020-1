@@ -7,19 +7,35 @@ import { AppComponent } from './app.component';
 import { BeerListComponent } from './beer-list/beer-list.component';
 import { FavBeerComponent } from './fav-beer/fav-beer.component';
 import { BeerSearchComponent } from './beer-search/beer-search.component';
+import { BeerDetailComponent } from './beer-detail-component/beer-detail-component.component';
+import {BeerDetailGuardComponent} from './beer-detail.guard/beer-detail.guard.component';
+import {RouterModule} from '@angular/router'; 
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     BeerListComponent,
     BeerSearchComponent,
-    FavBeerComponent
+    FavBeerComponent,
+    BeerDetailComponent,
+    BeerDetailGuardComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule, 
+    RouterModule.forRoot([
+      {path: 'home', component: FavBeerComponent},
+      {path: '', redirectTo : '/home', pathMatch : 'full' }, 
+      {path : 'beers', component : BeerSearchComponent}, 
+      {path : 'beers/:id', component : BeerDetailComponent, canActivate : [BeerDetailGuardComponent]}, 
+      {path : '**', redirectTo: '/home' , pathMatch : 'full'}
+  
+    
+    ])
 
   ],
   providers: [],
