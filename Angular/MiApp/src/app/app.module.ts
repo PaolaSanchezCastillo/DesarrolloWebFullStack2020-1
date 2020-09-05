@@ -5,12 +5,12 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BeerListComponent } from './beer-list/beer-list.component';
-import { FavBeerComponent } from './fav-beer/fav-beer.component';
-import { BeerSearchComponent } from './beer-search/beer-search.component';
+import { BeerListComponent } from './beer/beer-list/beer-list.component';
+import { FavBeerComponent } from './beer/fav-beer/fav-beer.component';
+import { BeerSearchComponent } from './beer/beer-search/beer-search.component';
 import { RouterModule } from '@angular/router';
-import { BeerDetailComponent } from './beer-detail/beer-detail.component';
-import { BeerDetailGuard } from './beer-detail/beer-detail.guard';
+import { BeerDetailComponent } from './beer/beer-detail/beer-detail.component';
+import { BeerDetailGuard } from './beer/beer-detail/beer-detail.guard';
 
 @NgModule({
   declarations: [
